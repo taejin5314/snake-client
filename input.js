@@ -1,3 +1,4 @@
+const { MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT } = require('./constants');
 let connection;
 
 const setupInput = (conn) => {
@@ -11,18 +12,17 @@ const setupInput = (conn) => {
   return stdin;
 };
 
-let chat = '';
 const handleUserInput = function(key) {
   if (key === '\u0003') {
     process.exit();
   } else if (key === 'w') {
-    connection.write("Move: up");
+    connection.write(MOVE_UP);
   } else if (key === 's') {
-    connection.write("Move: down");
+    connection.write(MOVE_DOWN);
   } else if (key === 'a') {
-    connection.write("Move: left");
+    connection.write(MOVE_LEFT);
   } else if (key === 'd') {
-    connection.write("Move: right");
+    connection.write(MOVE_RIGHT);
   } else {
     if (key === '1') connection.write('Say: HELLO');
     if (key === '2') connection.write('Say: LOL');
