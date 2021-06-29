@@ -10,7 +10,13 @@ const connect = function() {
 
   conn.on("connect", () => {
     console.log('Successfully connected to game server');
+
+    // send name to the server
     conn.write("Name: TJT");
+
+    // setInterval(() => conn.write("Move: up"), 50)
+
+    // receive messages from the server
     conn.on("data", (data) => {
       console.log(data);
     });
