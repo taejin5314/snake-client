@@ -11,6 +11,7 @@ const setupInput = (conn) => {
   return stdin;
 };
 
+let chat = '';
 const handleUserInput = function(key) {
   if (key === '\u0003') {
     process.exit();
@@ -22,6 +23,10 @@ const handleUserInput = function(key) {
     connection.write("Move: left");
   } else if (key === 'd') {
     connection.write("Move: right");
+  } else {
+    if (key === '1') connection.write('Say: HELLO');
+    if (key === '2') connection.write('Say: LOL');
+    if (key === '3') connection.write('Say: I AM A SNAKE!!');
   }
 };
 
